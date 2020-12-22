@@ -8,8 +8,6 @@
 
 namespace esas\cmsgate;
 
-use esas\cmsgate\cscart\CSCartPaymentMethod;
-use esas\cmsgate\cscart\CSCartPaymentProcessor;
 use esas\cmsgate\lang\LocaleLoaderJoomla;
 
 abstract class CmsConnectorJoomla extends CmsConnector
