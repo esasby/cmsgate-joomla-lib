@@ -25,7 +25,7 @@ class InstallHelperJoomla
         if (!$deleted) {
             echo JText::sprintf('JLIB_INSTALLER_ERROR_FILE_FOLDER', $file) . '<br />';;
         }
-        return $result;
+        return $deleted;
     }
 
 }
