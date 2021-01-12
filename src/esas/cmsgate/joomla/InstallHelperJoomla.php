@@ -6,6 +6,7 @@ namespace esas\cmsgate\joomla;
 
 use JFile;
 use JFolder;
+use Joomla\CMS\Language\Text;
 
 class InstallHelperJoomla
 {
@@ -23,7 +24,7 @@ class InstallHelperJoomla
             $deleted = JFile::delete($file);
         }
         if (!$deleted) {
-            echo JText::sprintf('JLIB_INSTALLER_ERROR_FILE_FOLDER', $file) . '<br />';;
+            echo Text::sprintf('JLIB_INSTALLER_ERROR_FILE_FOLDER', $file) . '<br />';;
         }
         return $deleted;
     }

@@ -6,8 +6,8 @@ namespace esas\cmsgate\joomla;
 use esas\cmsgate\Registry;
 use Exception;
 use JDatabaseQuery;
-use \JFactory;
 use \JModelLegacy;
+use Joomla\CMS\Factory;
 
 class CmsgateModelJoomla extends JModelLegacy
 {
@@ -21,7 +21,7 @@ class CmsgateModelJoomla extends JModelLegacy
     {
         if ($extensionType == null) $extensionType = Registry::getRegistry()->getModuleDescriptor()->getModuleType();
         if ($extensionName == null) $extensionName = Registry::getRegistry()->getModuleDescriptor()->getModuleMachineName();
-        $db = JFactory::getDBO();
+        $db = Factory::getDBO();
         /** @var JDatabaseQuery $query */
         $query = $db->getQuery(true);
         $query
@@ -41,7 +41,7 @@ class CmsgateModelJoomla extends JModelLegacy
     {
         if ($extensionType == null) $extensionType = Registry::getRegistry()->getModuleDescriptor()->getModuleType();
         if ($extensionName == null) $extensionName = Registry::getRegistry()->getModuleDescriptor()->getModuleMachineName();
-        $db = JFactory::getDbo();
+        $db = Factory::getDbo();
         $query = $db->getQuery(true);
         $query
             ->update('#__extensions')
@@ -59,7 +59,7 @@ class CmsgateModelJoomla extends JModelLegacy
      */
     public static function isTableExists($tableName)
     {
-        $db = JFactory::getDBO();
+        $db = Factory::getDBO();
         $query = 'SHOW TABLES LIKE "%' . str_replace('#__', $db->getPrefix(), $tableName) . '"';
         $db->setQuery($query);
         $result = $db->loadResult();
